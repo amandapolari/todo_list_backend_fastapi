@@ -6,4 +6,4 @@ class Message(BaseModel):
 
 
 class TextoHtml(BaseModel):
-    conteudo: str
+    text: str

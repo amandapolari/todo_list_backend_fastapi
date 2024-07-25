@@ -19,8 +19,8 @@ def read_root():
     response_class=HTMLResponse,
     response_model=TextoHtml,
 )
-def retorna_hello():
-    conteudo = """
+def say_hello():
+    text = """
     <html>
       <head>
         <title>🙂</title>
@@ -30,4 +30,4 @@ def retorna_hello():
         <img src="https://http.dog/200.jpg" alt="200 OK" width="300">
       </body>
     </html>"""
-    return HTMLResponse(content=conteudo)
+    return HTMLResponse(content=text)

@@ -5,17 +5,17 @@ from fastapi.testclient import TestClient
 from todo_list_backend_fastapi.app import app
 
 
-def test_read_root_deve_retornar_ok_e_ola_mundo():
-    client = TestClient(app)  # Arrange (Organização do teste)
+def test_read_root_should_return_ok_and_hello_world():
+    client = TestClient(app)
 
-    response = client.get('/')  # Act (Ação)
+    response = client.get('/')
 
-    assert response.status_code == HTTPStatus.OK  # Assert (Afirmando)
+    assert response.status_code == HTTPStatus.OK
 
     assert response.json() == {'message': 'Olá Mundo!'}
 
 
-def test_hello_deve_retornar_ok_e_hello():
+def test_say_hello_should_return_ok_and_hello():
     client = TestClient(app)
 
     response = client.get('/hello')
