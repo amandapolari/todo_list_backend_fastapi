@@ -3,7 +3,12 @@ from http import HTTPStatus
 from fastapi import FastAPI
 from fastapi.responses import HTMLResponse
 
-from todo_list_backend_fastapi.schemas import Message, TextoHtml
+from todo_list_backend_fastapi.schemas import (
+    Message,
+    TextoHtml,
+    UserPublic,
+    UserSchema,
+)
 
 app = FastAPI()
 
@@ -31,3 +36,8 @@ def say_hello():
       </body>
     </html>"""
     return HTMLResponse(content=text)
+
+
+@app.post('/users/', status_code=HTTPStatus.CREATED, response_model=UserPublic)
+def create_user(user: UserSchema):
+    return user
